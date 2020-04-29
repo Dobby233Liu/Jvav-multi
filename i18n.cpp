@@ -8,7 +8,7 @@ string get_language_noncommand(string language, string tag){//std::string
 	if (tag == "UPGRADE_ERROR_UNKNOWN_PREFIX") return (language=="简体中文"?"（服务器提供版本：":"(version the server provided: ");
 	if (tag == "UPGRADE_ERROR_UNKNOWN_PREFIX_SECONDARY") return (language=="简体中文"?"，你的版本：":", your version: ");
 	if (tag == "UPGRADE_ERROR_UNKNOWN_SUFFIX") return (string)(language=="简体中文"?")":"）")+(string)"\n";
-	if (tag == "UPGRADE_NEW_VERSION_SUFFIX") return (string)(language=="简体中文"?" 来下载。":" to download.")+(string)"\n";
+	if (tag == "UPGRADE_NEW_VERSION_SUFFIX") return (string)(language=="简体中文"?" 来下载。":" to download.");
 	if (tag == "INFO_JOKE") {
 		return (string)(language=="简体中文"?
 		"\n这只是个笑话，但我们仍做了一个 REPL。笑话来源为张浩扬。"
@@ -57,7 +57,7 @@ string get_language_noncommand(string language, string tag){//std::string
 	}
 	if (tag == "VERSION_SCREEN_HELP"){
 		return (string)(language=="简体中文"?
-		"| 输入 “.help” 以获取帮助                  |\n":
+		"| 输入 '.help' 以获取帮助                  |\n":
 		"| Type '.help' to get help                 |\n");
 	}
 	if (tag == "VERSION_SCREEN_WHATS_NEW"){
@@ -108,7 +108,6 @@ string get_language(string language, string tag, string command = "<parser>"){//
 		ret = "";
 	}
 	if (tag == "UPGRADE_LATEST_VERSION") {
-		doend = FALSE;
 		ret = (language=="简体中文"?"恭喜，你已经更新到最新版本了！":"Congratulations! You've upgraded to the latest version!");
 	}
 	if (tag == "UPGRADE_NEW_VERSION"){
