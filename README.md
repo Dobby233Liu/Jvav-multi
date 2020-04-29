@@ -1,8 +1,8 @@
 # Jvav-multi
 
-> 注意：这是一个梗，并非真实存在的编程语言。
-> 未经TZG-official允许，禁止在其他项目上使用此代码或修改署名后重新编译分发。
-> 此库的程序已成为Jvav.top的下载内容。
+> 注意：这是一个梗，并非真实存在的编程语言。未经TZG-official允许，禁止在其他项目上使用此代码或修改署名后重新编译分发。
+
+*licensing pending*
 
 ###### Jvav-windows Readme
 
