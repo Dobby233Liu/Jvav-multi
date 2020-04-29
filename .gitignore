@@ -1,2 +1,5 @@
 # executables
 jvav
+*.exe
+*.dll
+curl-ca-bundle.crt
