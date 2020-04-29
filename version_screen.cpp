@@ -1,13 +1,13 @@
 void version_screen(string language, int intro = TRUE){
 	cout << "--------------------------------------------\n";
-    cout << "| Jvav REPL              Runtime "+RUNTIME_VERSION+" |\n";
-    cout << "| By Dr. HaoYang Zhang         REPL "+REPL_VERSION+" |\n";
-    cout << "| programmed by "+AUTHOR+"                 |\n";
+    cout << get_language_noncommand(language, "VERSION_SCREEN_RUNTIME");
+    cout << get_language_noncommand(language, "VERSION_SCREEN_HAOYANG");
+    cout << get_language_noncommand(language, "VERSION_SCREEN_AUTHOR");
 if (intro){ // srry for the indent. it was intended
-	cout << "| Type '.help' to get info                 |\n";
-	cout << "| WHAT'S NEW:                              |\n";
-	cout << "| Better i18n for REPL; 10888              |\n";
-	cout << "|                     multiplatform port   |\n";
+	cout << get_language_noncommand(language, "VERSION_SCREEN_HELP");
+	cout << get_language_noncommand(language, "VERSION_SCREEN_WHATS_NEW");
+	cout << get_language_noncommand(language, "VERSION_SCREEN_LINE_1");
+	cout << get_language_noncommand(language, "VERSION_SCREEN_LINE_2");
 }
     cout << "--------------------------------------------\n";
 }
