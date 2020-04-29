@@ -8,6 +8,8 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
+    - run: "sudo apt install libcurl4-openssl-dev"
+      name: "fucking soultion"
     - uses: actions/checkout@v2
       with:
         submodules: "recursive"
