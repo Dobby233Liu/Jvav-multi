@@ -47,8 +47,8 @@ string get_language_noncommand(string language, string tag){//std::string
 	}
 	if (tag == "VERSION_SCREEN_HAOYANG"){
 		return (string)(language=="简体中文"?
-		"| By 张浩扬博士                REPL 20w06a |\n":
-		"| By Dr. HaoYang Zhang         REPL 20w06a |\n");
+		"| By 张浩扬博士                REPL "+REPL_VERSION+" |\n":
+		"| By Dr. HaoYang Zhang         REPL "+REPL_VERSION+" |\n");
 	}
 	if (tag == "VERSION_SCREEN_AUTHOR"){
 		return (string)(language=="简体中文"?
