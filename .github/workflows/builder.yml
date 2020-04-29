@@ -1,0 +1,17 @@
+name: x86_64 Ubuntu ? build
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: make
+      run: make
+    - name: Upload binary
+      uses: actions/upload-artifact@v2
+      with:
+        path: jvav
