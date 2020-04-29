@@ -6,8 +6,9 @@
 *licensing pending*
 
 ###### Original README by 30266, 2020-04-16 11:00 (UTC)
-It's just a joke, but we still made it. The joke was originally brought by Zhang Haoyang.
-It's reprints comply with the CC3.0 protocol. (Dobby233Liu: upgraded to CC-4.0-BY)
+>It's just a joke, but we still made it. The joke was originally brought by Zhang Haoyang.
+>
+>It's reprints comply with the CC3.0 protocol. (Dobby233Liu: upgraded to CC-4.0-BY)
 
 This is a try to make Jvav REPL have a fragmented i18n system, wonderfully split, no Chinese commands, and make upgrading JRE-less.
 
