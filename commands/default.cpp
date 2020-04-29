@@ -1,0 +1,1 @@
+cout << get_language(language, "INVAILD_COMMAND");

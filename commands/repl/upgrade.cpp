@@ -1,0 +1,1 @@
+upgrade_check_friendly(language, command);
