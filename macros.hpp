@@ -4,5 +4,5 @@
 #define REPL_VERSION_ID 7
 #define RUNTIME_VERSION (string)"1.2.10889"
 #define VERSION_API "https://30266-Official.github.io/updates" // no trailing slash
-#define AUTHOR "30266"
+#define AUTHOR (string)"30266"
 #define DL_ADDR (string)"https://30266-official.github.io/updates/Jvav.zip"

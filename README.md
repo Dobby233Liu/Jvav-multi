@@ -1,10 +1,19 @@
 # Jvav-multi
+
+> 注意：这是一个梗，并非真实存在的编程语言。
+> 未经TZG-official允许，禁止在其他项目上使用此代码或修改署名后重新编译分发。
+> 此库的程序已成为Jvav.top的下载内容。
+
+###### Jvav-windows Readme
+
 It's just a joke, but we still made it. The joke was originally brought by Zhang Haoyang.
 It's reprints comply with the CC3.0 protocol. (Dobby233Liu: upgraded to CC-4.0-BY)
 
 ###### Original README by 30266, 2020-04-16 11:00 (UTC)
 
-This is a try to make Jvav REPL have a fragmented i18n system, wonderfully split, and make upgrading JRE-less.
+This is a try to make Jvav REPL have a fragmented i18n system, wonderfully split, no Chinese commands, and make upgrading JRE-less.
+
+If you're PR-ing this into the Jvav-windows repo, your PR probably will be rejected by TZG-Offical - the changes are too big.
 
 # Building
 ## Linux (Ubuntu)
