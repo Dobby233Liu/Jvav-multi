@@ -3,7 +3,11 @@ all: jvav
 .PHONY: all jvav
 CLEAN_FILES = jvav
 REQUIRED_CPP = $(wildcard cpr/cpr/*.cpp) Jvav.cpp
-OPTIONS = -O2 -Icpr/include
+#choices: -O3 -Ofast -Os
+OPTIONS = -Os -flto -Icpr/include
+# -O3 stuff with size-expander removed, only use if you're using -Os
+# -fversion-loops-for-strides is unavaliable
+OPTIONS += -fgcse-after-reload -floop-interchange -floop-unroll-and-jam -fpeel-loops -fpredictive-commoning -fsplit-loops -fsplit-paths -ftree-loop-distribution -ftree-loop-vectorize -ftree-partial-pre -ftree-slp-vectorize -funswitch-loops -fvect-cost-model -fvect-cost-model=dynamic
 # special, see some SO answer for ref
 ENDING_OPTIONS = -lcurl
 jvav:
