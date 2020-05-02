@@ -12,6 +12,10 @@ OPTIONS ?= -Os -flto -Icpr/include -fgcse-after-reload -floop-interchange -floop
 
 # special, see some SO answer for ref
 ENDING_OPTIONS ?= -lcurl
+ifeq ($(GHA_RUNNER_WINDOWS),y)
+ENDING_OPTIONS = -Icpr/opt/curl/include/curl
+endif
+
 jvav:
 	$(CXX) $(OPTIONS) -o $@ $(REQUIRED_CPP) $(ENDING_OPTIONS)
 PREFIX = /usr

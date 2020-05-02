@@ -32,7 +32,7 @@ jobs:
         # fixme: fork bomb
         - name: make
           run: |
-            set ENDING_OPTIONS=-Icpr/opt/curl/include/curl
+            set GHA_RUNNER_WINDOWS=y
             make -j
         - name: Upload binary
           uses: actions/upload-artifact@v2
