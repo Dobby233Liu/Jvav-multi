@@ -30,6 +30,7 @@ jobs:
           with:
             submodules: "recursive"
         # fixme: fork bomb
+        # todo: you needed to dl curl-for-win?
         - name: make
           run: |
             make -j GHA_RUNNER_WINDOWS=y
