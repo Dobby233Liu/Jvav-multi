@@ -32,8 +32,7 @@ jobs:
         # fixme: fork bomb
         - name: make
           run: |
-            set GHA_RUNNER_WINDOWS=y
-            make -j
+            make -j GHA_RUNNER_WINDOWS=y
         - name: Upload binary
           uses: actions/upload-artifact@v2
           with:
