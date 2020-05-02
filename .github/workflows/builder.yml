@@ -20,3 +20,6 @@ jobs:
       uses: actions/upload-artifact@v2
       with:
         path: jvav
+        # platfrom-name-version-builder
+        # todo: append _github_actions_hosted_runner to builder field where possible
+        name: x86_64-pc-linux-jvav-9git-azure_vm_ubuntu

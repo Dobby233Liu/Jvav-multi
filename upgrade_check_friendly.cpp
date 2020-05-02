@@ -2,7 +2,7 @@ void upgrade_check_friendly(string language, string command){
 	cout << get_language(language, "UPGRADE_REQUESTING_VERSION", command);
 	int ret = check_version();
 	int showVersion = FALSE;
-	if (ret < 0) { // -1002: server say error, < 0 == can't obtain
+	if (ret < 0 && !(-1001<ret)) { // -1002: server say error, < 0 == can't obtain
 		cout << get_language(language, "UPGRADE_ERROR_CURL", command);
 		showVersion = TRUE; // this should be safe?
 	}
@@ -18,7 +18,7 @@ void upgrade_check_friendly(string language, string command){
 	else if (ret < REPL_VERSION_ID && ret > -1){
 		cout << get_language(language, "UPGRADE_ERROR_FUTURE", command);
 		showVersion = TRUE;
-	} else { // did this ended up be used?
+	} else { // did this ended up be used? yes since 20w06c
 		cout << get_language(language, "UPGRADE_ERROR_UNKNOWN", command);
 		showVersion = TRUE;
 	}
