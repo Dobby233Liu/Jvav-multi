@@ -26,8 +26,6 @@ jobs:
   build-mingw-x86_64:
     runs-on: windows-latest
     steps:
-        - run: "sudo apt install libcurl4-openssl-dev"
-          name: "dogly soultion"
         - uses: actions/checkout@v2
           with:
             submodules: "recursive"
