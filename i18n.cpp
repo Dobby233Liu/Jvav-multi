@@ -96,7 +96,7 @@ string get_language(string language, string tag, string command = "<parser>"){//
 		doend = FALSE;
 		ret = (language=="简体中文"?
 			"未知错误。"
-			:"Unknown error.");
+			:"Unknown error. ");
 	}
 	if (tag == "CHOOSE_LANG") {
 		doend = FALSE;
