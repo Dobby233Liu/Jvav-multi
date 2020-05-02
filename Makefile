@@ -16,8 +16,17 @@ ENDING_OPTIONS = -lcurl
 jvav:
 	$(CXX) $(OPTIONS) -o $@ $(REQUIRED_CPP) $(ENDING_OPTIONS)
 PREFIX = /usr
-install: jvav
+install: all
 	# coreutils required
 	install -m755 jvav "$(PREFIX)/bin"
+check:
+	$(error This target is currently a stub.)
 clean:
 	rm -f $(CLEAN_FILES)
+help:
+	echo "[make] help - show all commands"
+	echo "[make] all - build all targets"
+	echo "[make] <binary name> - build a binary"
+	echo "[make] install - install all buildable binaries (will run all)"
+	echo "[make] check - a stub for future check commands"
+	echo "[make] clean - cleanup workspace"

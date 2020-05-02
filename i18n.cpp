@@ -7,7 +7,7 @@ string get_language_noncommand(string language, string tag){//std::string
  	if (tag == "COLON_SPACE_CONNECTER") return (language=="简体中文"?"：":": ");
 	if (tag == "UPGRADE_ERROR_UNKNOWN_PREFIX") return (language=="简体中文"?"（服务器提供版本：":"(version the server provided: ");
 	if (tag == "UPGRADE_ERROR_UNKNOWN_PREFIX_SECONDARY") return (language=="简体中文"?"，你的版本：":", your version: ");
-	if (tag == "UPGRADE_ERROR_UNKNOWN_SUFFIX") return (string)(language=="简体中文"?")":"）")+(string)"\n";
+	if (tag == "UPGRADE_ERROR_UNKNOWN_SUFFIX") return (string)(language=="简体中文"?"）":")")+(string)"\n";
 	if (tag == "UPGRADE_NEW_VERSION_SUFFIX") return (string)(language=="简体中文"?" 来下载。":" to download.");
 	if (tag == "INFO_JOKE") {
 		return (string)(language=="简体中文"?
