@@ -23,3 +23,23 @@ jobs:
         # platfrom-name-version-builder
         # todo: append _github_actions_hosted_runner to builder field where possible
         name: x86_64-pc-linux-jvav-9git-azure_vm_ubuntu
+  build-mingw-x86_64:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Install dependencies
+      run: sudo apt-get install -y gcc-mingw-w64-x86-64 g++-mingw-w64-x86-64
+    - run: "sudo apt install libcurl4-openssl-dev"
+      name: "dogly soultion"
+    - uses: actions/checkout@v2
+      with:
+        submodules: "recursive"
+    # fixme: fork bomb
+    - name: make
+      run: CXX="x86_64-w64-mingw32-g++" make -j
+    - name: Upload binary
+      uses: actions/upload-artifact@v2
+      with:
+        path: jvav.exe
+        # platfrom-name-version-builder
+        # todo: append _github_actions_hosted_runner to builder field where possible
+        name: x86_64-pc-winnt-jvav-9git-azure_vm_ubuntu
