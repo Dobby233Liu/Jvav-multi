@@ -33,7 +33,7 @@ jobs:
             submodules: "recursive"
         # fixme: fork bomb
         - name: make
-          run:|
+          run: |
             set ENDING_OPTIONS=-Icpr/opt/curl/include/curl
             make -j
         - name: Upload binary
