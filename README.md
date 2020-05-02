@@ -1,6 +1,6 @@
 # Jvav-multi
 
-###### Jvav-windows Readme
+###### Jvav-Windows Readme
 > 注意：这是一个梗，并非真实存在的编程语言。未经TZG-official允许，禁止在其他项目上使用此代码或修改署名后重新编译分发。
 
 *not with the CC-BY-4.0*
@@ -15,8 +15,12 @@
 ###### real README
 This is a try to make Jvav REPL have a fragmented i18n system, wonderfully split, no Chinese commands, and make upgrading JRE-less.
 
-If you're PR-ing this into the Jvav-windows repo, your PR probably will be rejected by TZG-Offical - the changes are too big.
+If you're PR-ing this into the Jvav-Windows repo, your PR probably will be rejected by TZG-Offical - the changes are too big.
 
+The code is also, slightly, a mess (maybe messier than the 30266/TZG branch), because files are `#include`'d, thus they can merge to a messier `Jvav.cpp` after the preprocessing. Don't learn to do this.
+
+# TODO
+	* upgrade program, like in Jvav-Windows
 # Building
 ## Linux (Ubuntu)
 Bring a pack of build essentials (make, g++ is the requirement), then run `make`. Run `make install` to install Jvav to `/usr/bin`.
