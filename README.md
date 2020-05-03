@@ -31,4 +31,4 @@ Bring a pack of build essentials (make, g++ is the requirement), then run `make`
 Also get a Windows build toolchain, ensure libcurl includes is installed \[if doing in windows, take some hacks to global libs\], make `make` run the correct CXX, then run `make`. Copy DLL(s) if needed.
 
 # Prebuilts
-There is 2 builder that builds Jvav in each commits, `build` (Linux) and `build-mingw-x86_64` (Windows, MinGW). Currently, only the Linux build will work.
+There is 2 builders that builds Jvav in each commits, `build` (Linux) and `build-mingw-x86_64` (Windows, MinGW). Currently, only the Linux build will work.

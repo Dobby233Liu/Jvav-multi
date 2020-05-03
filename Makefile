@@ -7,7 +7,7 @@ REQUIRED_CPP = $(wildcard cpr/cpr/*.cpp) Jvav.cpp
 # choices: -O3 -Ofast -Os
 # and added -O3 stuff with size-expander removed, only use if you're using -Os
 # -fversion-loops-for-strides is unavaliable
-OPTIONS ?= -Os -flto -Icpr/include -fgcse-after-reload -floop-interchange -floop-unroll-and-jam -fpeel-loops -fpredictive-commoning -fsplit-loops -fsplit-paths -ftree-loop-distribution -ftree-loop-vectorize -ftree-partial-pre -ftree-slp-vectorize -funswitch-loops -fvect-cost-model -fvect-cost-model=dynamic
+OPTIONS ?= -Os -Icpr/include -fgcse-after-reload -floop-interchange -floop-unroll-and-jam -fpeel-loops -fpredictive-commoning -fsplit-loops -fsplit-paths -ftree-loop-distribution -ftree-loop-vectorize -ftree-partial-pre -ftree-slp-vectorize -funswitch-loops -fvect-cost-model -fvect-cost-model=dynamic
 #OPTIONS += -ffast-math
 
 # special, see some SO answer for ref
@@ -15,6 +15,8 @@ ENDING_OPTIONS ?= -lcurl
 ifeq ($(GHA_RUNNER_WINDOWS),y)
 #ENDING_OPTIONS += -Icpr/opt/curl/include
 #ENDING_OPTIONS += -llibcurl
+else
+OPTIONS += -flto
 endif
 
 jvav:
