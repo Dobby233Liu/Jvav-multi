@@ -40,7 +40,7 @@ jobs:
         - name: make
           shell: cmd
           run: make -j GHA_RUNNER_WINDOWS=y
-        - na
+        - name: "gen bin"
           run: |
             mkdir bin
             cd bin
