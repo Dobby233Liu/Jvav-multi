@@ -21,6 +21,7 @@ The code is also, slightly, a mess (maybe messier than the 30266/TZG branch), be
 
 # TODO
 	* upgrade program, like in Jvav-Windows
+
 # Building
 ## Linux (Ubuntu)
 Bring a pack of build essentials (make, g++ is the requirement), then run `make`. Run `make install` to install Jvav to `/usr/bin`.
@@ -28,3 +29,6 @@ Bring a pack of build essentials (make, g++ is the requirement), then run `make`
 **WARNING:** Jvav-multi might not work correctly on Windows, often without a right charset and curl failing to do SSL. Always use `chcp 65001`.
 
 Also get a Windows build toolchain, ensure libcurl includes is installed \[if doing in windows, take some hacks to global libs\], make `make` run the correct CXX, then run `make`. Copy DLL(s) if needed.
+
+# Prebuilts
+There is 2 builder that builds Jvav in each commits, `build` (Linux) and `build-mingw-x86_64` (Windows, MinGW). Currently, only the Linux build will work.
