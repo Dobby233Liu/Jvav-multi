@@ -59,3 +59,37 @@ jobs:
             # platfrom-name-version-builder
             # todo: append _github_actions_hosted_runner to builder field where possible
             name: x86_64-pc-winnt-jvav-9git-azure_vm_winnt
+  build-nonetwork:
+    if: "!contains(github.event.commits[0].message, '[skip ci]')&&!contains(github.event.commits[0].message, '[ci skip]')&&!contains(github.event.commits[0].message, '[skip networkless build]')"
+    runs-on: ubuntu-latest
+    steps:
+        - uses: actions/checkout@v2
+          with:
+            submodules: "recursive"
+        # fixme: fork bomb
+        - name: make
+          run: make -j
+        - name: Upload binary
+          uses: actions/upload-artifact@v2
+          with:
+            path: jvav
+            # platfrom-name-version-builder
+            # todo: append _github_actions_hosted_runner to builder field where possible
+            name: x86_64-pc-linux-jvav-9git-nonet-azure_vm_ubuntu
+  build-mingw-x86_64-nonetwork:
+    if: "!contains(github.event.commits[0].message, '[skip ci]')&&!contains(github.event.commits[0].message, '[ci skip]')&&!contains(github.event.commits[0].message, '[skip networkless mingw build]')"
+    runs-on: windows-latest
+    steps:
+        - uses: actions/checkout@v2
+          with:
+            submodules: "recursive"
+        # fixme: fork bomb
+        - name: make
+          run: make -j GHA_RUNNER_WINDOWS=y NO_NETWORKING=y
+        - name: Upload binary
+          uses: actions/upload-artifact@v2
+          with:
+            path: jvav.exe
+            # platfrom-name-version-builder
+            # todo: append _github_actions_hosted_runner to builder field where possible
+            name: x86_64-pc-winnt-jvav-9git-nonet-azure_vm_winnt
