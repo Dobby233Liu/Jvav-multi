@@ -37,12 +37,17 @@ jobs:
             7z x curl-for-win.zip -y -aoa -bb3 -slt
             xcopy curl-7.70.0-win64-mingw\*.* c:\ProgramData\Chocolatey\lib\mingw\tools\install\mingw64\x86_64-w64-mingw32 /y /s /e
             xcopy curl-7.70.0-win64-mingw\*.* c:\ProgramData\Chocolatey\lib\mingw\tools\install\mingw64 /y /s /e
-            dir c:\ProgramData\Chocolatey\lib\mingw\tools\install\mingw64\bin
             make -j GHA_RUNNER_WINDOWS=y
+            mkdir bin
+            cd bin
+            copy ..\jvav.exe .
+            copy c:\ProgramData\Chocolatey\lib\mingw\tools\install\mingw64\libcurl-x64.dll .
+            copy c:\ProgramData\Chocolatey\lib\mingw\tools\install\mingw64\libgcc_s_seh-1.dll .
+            copy c:\ProgramData\Chocolatey\lib\mingw\tools\install\mingw64\libstdc++-6.dll .
         - name: Upload binary
           uses: actions/upload-artifact@v2
           with:
-            path: jvav.exe
+            path: bin
             # platfrom-name-version-builder
             # todo: append _github_actions_hosted_runner to builder field where possible
             name: x86_64-pc-winnt-jvav-9git-azure_vm_winnt
