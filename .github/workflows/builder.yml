@@ -34,8 +34,8 @@ jobs:
           shell: cmd
           run: |
             curl -o curl-for-win.zip https://curl.haxx.se/windows/dl-7.70.0/curl-7.70.0-win64-mingw.zip
-            7z x curl-for-win.zip -oc:\ProgramData\Chocolatey\lib\mingw\tools\install\mingw64\x86_64-w64-mingw32 -y -aoa -bb3 -slt
-            7z x curl-for-win.zip -oc:\ProgramData\Chocolatey\lib\mingw\tools\install\mingw64 -y -aoa -bb3 -slt
+            7z x curl-for-win.zip curl-7.70.0-win64-mingw/* -oc:\ProgramData\Chocolatey\lib\mingw\tools\install\mingw64\x86_64-w64-mingw32 -y -aoa -bb3 -slt -r
+            7z x curl-for-win.zip curl-7.70.0-win64-mingw/* -oc:\ProgramData\Chocolatey\lib\mingw\tools\install\mingw64 -y -aoa -bb3 -slt -r
             dir c:\ProgramData\Chocolatey\lib\mingw\tools\install\mingw64\bin
             make -j GHA_RUNNER_WINDOWS=y
         - name: Upload binary
