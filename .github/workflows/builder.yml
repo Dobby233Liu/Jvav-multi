@@ -6,6 +6,7 @@ on:
 
 jobs:
   build:
+    if: "!contains(github.event.commits[0].message, '[skip ci]')||!contains(github.event.commits[0].message, '[ci skip]')||!contains(github.event.commits[0].message, '[skip build]')"
     runs-on: ubuntu-latest
     steps:
         - run: "sudo apt install libcurl4-openssl-dev"
@@ -24,6 +25,7 @@ jobs:
             # todo: append _github_actions_hosted_runner to builder field where possible
             name: x86_64-pc-linux-jvav-9git-azure_vm_ubuntu
   build-mingw-x86_64:
+    if: "!contains(github.event.commits[0].message, '[skip ci]')||!contains(github.event.commits[0].message, '[ci skip]')||!contains(github.event.commits[0].message, '[skip mingw build]')"
     runs-on: windows-latest
     steps:
         - uses: actions/checkout@v2
