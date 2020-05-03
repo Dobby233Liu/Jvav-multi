@@ -40,8 +40,7 @@ jobs:
         - name: make
           shell: cmd
           run: make -j GHA_RUNNER_WINDOWS=y
-        - name: gen bin
-          shell: cmd
+        - na
           run: |
             mkdir bin
             cd bin
@@ -52,7 +51,7 @@ jobs:
             echo gcc
             copy c:\ProgramData\Chocolatey\lib\mingw\tools\install\mingw64\bin\libgcc_s_seh-1.dll .
             echo std c++
-            copy c:\ProgramData\Chocolatey\lib\mingw\tools\install\mingw64\bin\libstdc^+^+-6.dll .
+            copy c:\ProgramData\Chocolatey\lib\mingw\tools\install\mingw64\bin\libstdc++-6.dll .
         - name: Upload binary
           uses: actions/upload-artifact@v2
           with:
