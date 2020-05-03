@@ -26,7 +26,7 @@ install: all
 	# coreutils required
 	install -m755 jvav "$(PREFIX)/bin"
 check:
-	$(error This target is currently a stub.)
+	$(error This target is currently a stub)
 clean:
 	rm -f $(CLEAN_FILES)
 help:
