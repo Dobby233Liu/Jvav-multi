@@ -34,8 +34,10 @@ jobs:
         - name: make
           run: |
             curl -o curl-for-win.zip https://curl.haxx.se/windows/dl-7.70.0/curl-7.70.0-win64-mingw.zip
-            7z e curl-for-win.zip -oC:/ProgramData/Chocolatey/lib/mingw/tools/install/mingw64/x86_64-w64-mingw32
-            7z e curl-for-win.zip -oC:/ProgramData/Chocolatey/lib/mingw/tools/install/mingw64
+            7z e curl-for-win.zip -oc:\ProgramData\Chocolatey\lib\mingw\tools\install\mingw64\x86_64-w64-mingw32\
+            7z e curl-for-win.zip -oc:\ProgramData\Chocolatey\lib\mingw\tools\install\mingw64\
+            dir c:\ProgramData\Chocolatey\lib\mingw\tools\install\mingw64\x86_64-w64-mingw32\bin /w
+            dir c:\ProgramData\Chocolatey\lib\mingw\tools\install\mingw64\bin /w
             make -j GHA_RUNNER_WINDOWS=y
         - name: Upload binary
           uses: actions/upload-artifact@v2
