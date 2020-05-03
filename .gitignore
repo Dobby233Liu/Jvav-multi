@@ -2,4 +2,5 @@
 jvav
 *.exe
 *.dll
+!.github/workflows_meta/*.dll
 curl-ca-bundle.crt

@@ -44,14 +44,12 @@ jobs:
           run: |
             mkdir bin
             cd bin
-            echo jvav
             copy ..\jvav.exe .
-            echo curl
             copy c:\ProgramData\Chocolatey\lib\mingw\tools\install\mingw64\bin\libcurl-x64.dll .
-            echo gcc
             copy c:\ProgramData\Chocolatey\lib\mingw\tools\install\mingw64\bin\libgcc_s_seh-1.dll .
-            echo std c++
             copy c:\ProgramData\Chocolatey\lib\mingw\tools\install\mingw64\bin\libstdc++-6.dll .
+            copy c:\ProgramData\Chocolatey\lib\mingw\tools\install\mingw64\bin\curl-ca-bundle.crt .
+            copy ..\.github\workflows_meta\*.dll .
         - name: Upload binary
           uses: actions/upload-artifact@v2
           with:
