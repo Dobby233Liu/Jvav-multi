@@ -30,9 +30,10 @@ check:
 clean:
 	rm -f $(CLEAN_FILES)
 help:
-	echo "[make] help - show all commands"
-	echo "[make] all - build all targets"
-	echo "[make] <binary name> - build a binary"
-	echo "[make] install - install all buildable binaries (will run all)"
-	echo "[make] check - a stub for future check commands"
-	echo "[make] clean - cleanup workspace"
+	$(info [make] help - show all commands)
+	$(info [make] all - build all targets)
+	$(info [make] <binary name> - build a binary)
+	$(info [make] install - install all buildable binaries (will run all))
+	$(info [make] check - a stub for future check commands)
+	$(info [make] clean - cleanup workspace)
+	@exit
