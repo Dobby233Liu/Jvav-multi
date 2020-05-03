@@ -30,13 +30,12 @@ jobs:
           with:
             submodules: "recursive"
         # fixme: fork bomb
-        # todo: you needed to dl curl-for-win?
         - name: make
           shell: cmd
           run: |
             curl -o curl-for-win.zip https://curl.haxx.se/windows/dl-7.70.0/curl-7.70.0-win64-mingw.zip
-            7z x curl-for-win.zip -oc:\ProgramData\Chocolatey\lib\mingw\tools\install\mingw64\x86_64-w64-mingw32
-            7z x curl-for-win.zip -oc:\ProgramData\Chocolatey\lib\mingw\tools\install\mingw64
+            7z x curl-for-win.zip -oc:\ProgramData\Chocolatey\lib\mingw\tools\install\mingw64\x86_64-w64-mingw32 -y -aoa
+            7z x curl-for-win.zip -oc:\ProgramData\Chocolatey\lib\mingw\tools\install\mingw64 -y -aoa
             dir c:\ProgramData\Chocolatey\lib\mingw\tools\install\mingw64\bin
             make -j GHA_RUNNER_WINDOWS=y
         - name: Upload binary
