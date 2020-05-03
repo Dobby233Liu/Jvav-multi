@@ -43,6 +43,7 @@ jobs:
             copy ..\jvav.exe .
             copy c:\ProgramData\Chocolatey\lib\mingw\tools\install\mingw64\bin\libcurl-x64.dll .
             copy c:\ProgramData\Chocolatey\lib\mingw\tools\install\mingw64\bin\libgcc_s_seh-1.dll .
+            dir c:\ProgramData\Chocolatey\lib\mingw\tools\install\mingw64\bin\libstdc++-6.dll
             copy c:\ProgramData\Chocolatey\lib\mingw\tools\install\mingw64\bin\libstdc++-6.dll .
         - name: Upload binary
           uses: actions/upload-artifact@v2
