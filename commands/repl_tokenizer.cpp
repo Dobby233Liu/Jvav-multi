@@ -25,7 +25,11 @@ switch (switch_translator(command.c_str())){
 		break;
 	}
 	case switch_translator(".upgrade"): {
+#ifndef NO_NETWORKING
 		#include "repl/upgrade.cpp"
+#else
+		#include "default.cpp"
+#endif
 		break;
 	}
 	case switch_translator(".language"): {
