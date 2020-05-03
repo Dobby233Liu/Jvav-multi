@@ -68,7 +68,7 @@ jobs:
             submodules: "recursive"
         # fixme: fork bomb
         - name: make
-          run: make -j
+          run: make -j NO_NETWORKING=y
         - name: Upload binary
           uses: actions/upload-artifact@v2
           with:
@@ -86,10 +86,18 @@ jobs:
         # fixme: fork bomb
         - name: make
           run: make -j GHA_RUNNER_WINDOWS=y NO_NETWORKING=y
+        - name: "gen bin"
+          run: |
+            mkdir bin
+            cd bin
+            copy ..\jvav.exe .
+            copy c:\ProgramData\Chocolatey\lib\mingw\tools\install\mingw64\bin\libgcc_s_seh-1.dll .
+            copy c:\ProgramData\Chocolatey\lib\mingw\tools\install\mingw64\bin\libstdc++-6.dll .
+            copy ..\.github\workflows_meta\*.dll .
         - name: Upload binary
           uses: actions/upload-artifact@v2
           with:
-            path: jvav.exe
+            path: bin
             # platfrom-name-version-builder
             # todo: append _github_actions_hosted_runner to builder field where possible
             name: x86_64-pc-winnt-jvav-9git-nonet-azure_vm_winnt
