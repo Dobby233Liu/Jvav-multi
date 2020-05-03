@@ -16,7 +16,7 @@ ifeq ($(GHA_RUNNER_WINDOWS),y)
 #ENDING_OPTIONS += -Icpr/opt/curl/include
 #ENDING_OPTIONS += -llibcurl
 else
-OPTIONS += -flto
+#OPTIONS += -flto
 endif
 
 jvav:
