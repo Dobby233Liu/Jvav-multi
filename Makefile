@@ -14,7 +14,7 @@ OPTIONS ?= -Os -flto -Icpr/include -fgcse-after-reload -floop-interchange -floop
 ENDING_OPTIONS ?= -lcurl
 ifeq ($(GHA_RUNNER_WINDOWS),y)
 #ENDING_OPTIONS += -Icpr/opt/curl/include
-ENDING_OPTIONS ?= -llibcurl
+ENDING_OPTIONS += -llibcurl
 endif
 
 jvav:
