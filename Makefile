@@ -24,6 +24,9 @@ ENDING_OPTIONS ?= -DNO_NETWORKING
 else
 ENDING_OPTIONS ?= -lcurl
 endif
+ifeq ($(STATIC),y)
+ENDING_OPTIONS += -static-libstdc++ -static-libgcc
+endif
 ifeq ($(GHA_RUNNER_WINDOWS),y)
 #ENDING_OPTIONS += -Icpr/opt/curl/include
 #ENDING_OPTIONS += -llibcurl

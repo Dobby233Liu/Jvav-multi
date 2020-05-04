@@ -51,19 +51,11 @@ jobs:
             xcopy curl-7.70.0-win64-mingw\*.* c:\MinGW /y /s /e
         - name: make
           shell: cmd
-          run: make -j GHA_RUNNER_WINDOWS=y
-        - name: "gen bin"
-          run: |
-            mkdir bin
-            cd bin
-            copy ..\jvav.exe .
-            copy c:\MinGW\bin\libgcc_s_seh-1.dll .
-            copy c:\MinGW\bin\libstdc++-6.crt .
-            # copy ..\.github\workflows_meta\*.dll .
+          run: make -j GHA_RUNNER_WINDOWS=y STATIC=y
         - name: Upload binary
           uses: actions/upload-artifact@v2
           with:
-            path: bin
+            path: jvav.exe
             # platfrom-name-version-builder
             # todo: append _github_actions_hosted_runner to builder field where possible
             name: x86_64-pc-winnt-jvav-9git-azure_vm_winnt
@@ -103,15 +95,7 @@ jobs:
             submodules: "recursive"
         # fixme: fork bomb
         - name: make
-          run: make -j GHA_RUNNER_WINDOWS=y NO_NETWORKING=y
-        - name: "gen bin"
-          run: |
-            mkdir bin
-            cd bin
-            copy ..\jvav.exe .
-            copy c:\MinGW\bin\libgcc_s_seh-1.dll .
-            copy c:\MinGW\bin\libstdc++-6.crt .
-            # copy ..\.github\workflows_meta\*.dll .
+          run: make -j GHA_RUNNER_WINDOWS=y NO_NETWORKING=y STATIC=y
         - name: Upload binary
           uses: actions/upload-artifact@v2
           with:
