@@ -36,8 +36,7 @@ jobs:
             curl -O https://lwys-file-bucket-uax4yp6.netlify.app/mingw-17.1-nuwen-cleanup.7z
             7z x mingw-17.1-nuwen-cleanup.7z -oC:\MinGW -y -aoa -bb3 -slt
             del /y mingw-17.1-nuwen-cleanup.7z
-            cd MinGW
-            set_distro_paths
+            C:\MinGW\set_distro_paths
         - uses: actions/checkout@v2
           with:
             submodules: "recursive"
@@ -51,7 +50,7 @@ jobs:
             xcopy curl-7.70.0-win64-mingw\*.* c:\MinGW /y /s /e
         - name: make
           shell: cmd
-          run: make -j GHA_RUNNER_WINDOWS=y STATIC=y
+          run: C:\MinGW\set_distro_paths && make -j GHA_RUNNER_WINDOWS=y STATIC=y
         - name: Upload binary
           uses: actions/upload-artifact@v2
           with:
@@ -95,7 +94,7 @@ jobs:
             submodules: "recursive"
         # fixme: fork bomb
         - name: make
-          run: make -j GHA_RUNNER_WINDOWS=y NO_NETWORKING=y STATIC=y
+          run: C:\MinGW\set_distro_paths && make -j GHA_RUNNER_WINDOWS=y NO_NETWORKING=y STATIC=y
         - name: Upload binary
           uses: actions/upload-artifact@v2
           with:
