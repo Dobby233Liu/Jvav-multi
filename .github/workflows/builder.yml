@@ -57,7 +57,7 @@ jobs:
             copy jvav.exe bin
             cd bin
             copy C:\MinGW\bin\libcurl-x64.dll .
-            # copy ..\.github\workflows_meta\*.dll .
+            copy ..\.github\workflows_meta\*.dll .
         - name: Upload binary
           uses: actions/upload-artifact@v2
           with:
