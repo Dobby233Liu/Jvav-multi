@@ -28,6 +28,16 @@ jobs:
     if: "!contains(github.event.commits[0].message, '[skip ci]')&&!contains(github.event.commits[0].message, '[ci skip]')&&!contains(github.event.commits[0].message, '[skip mingw build]')"
     runs-on: windows-latest
     steps:
+        - shell: cmd
+          run: |
+            cd /d C:
+            mkdir MinGW
+            rem whatever
+            curl -O https://lwys-file-bucket-uax4yp6.netlify.app/mingw-17.1-nuwen-cleanup.7z
+            7z x mingw-17.1-nuwen-cleanup.7z -oC:\MinGW -y -aoa -bb3 -slt
+            del /y mingw-17.1-nuwen-cleanup.7z
+            cd MinGW
+            set_distro_paths
         - uses: actions/checkout@v2
           with:
             submodules: "recursive"
@@ -37,8 +47,8 @@ jobs:
           run: |
             curl -o curl-for-win.zip https://curl.haxx.se/windows/dl-7.70.0/curl-7.70.0-win64-mingw.zip
             7z x curl-for-win.zip -y -aoa -bb3 -slt
-            xcopy curl-7.70.0-win64-mingw\*.* c:\ProgramData\Chocolatey\lib\mingw\tools\install\mingw64\x86_64-w64-mingw32 /y /s /e
-            xcopy curl-7.70.0-win64-mingw\*.* c:\ProgramData\Chocolatey\lib\mingw\tools\install\mingw64 /y /s /e
+            xcopy curl-7.70.0-win64-mingw\*.* c:\MinGW\x86_64-w64-mingw32 /y /s /e
+            xcopy curl-7.70.0-win64-mingw\*.* c:\MinGW /y /s /e
         - name: make
           shell: cmd
           run: make -j GHA_RUNNER_WINDOWS=y
@@ -47,11 +57,9 @@ jobs:
             mkdir bin
             cd bin
             copy ..\jvav.exe .
-            copy c:\ProgramData\Chocolatey\lib\mingw\tools\install\mingw64\bin\libcurl-x64.dll .
-            copy c:\ProgramData\Chocolatey\lib\mingw\tools\install\mingw64\bin\libgcc_s_seh-1.dll .
-            copy c:\ProgramData\Chocolatey\lib\mingw\tools\install\mingw64\bin\libstdc++-6.dll .
-            copy c:\ProgramData\Chocolatey\lib\mingw\tools\install\mingw64\bin\curl-ca-bundle.crt .
-            copy ..\.github\workflows_meta\*.dll .
+            # copy c:\ProgramData\Chocolatey\lib\mingw\tools\install\mingw64\bin\libcurl-x64.dll .
+            # copy c:\ProgramData\Chocolatey\lib\mingw\tools\install\mingw64\bin\curl-ca-bundle.crt .
+            # copy ..\.github\workflows_meta\*.dll .
         - name: Upload binary
           uses: actions/upload-artifact@v2
           with:
@@ -80,24 +88,26 @@ jobs:
     if: "!contains(github.event.commits[0].message, '[skip ci]')&&!contains(github.event.commits[0].message, '[ci skip]')&&!contains(github.event.commits[0].message, '[skip networkless mingw build]')"
     runs-on: windows-latest
     steps:
+        - shell: cmd
+          run: |
+            cd /d C:
+            mkdir MinGW
+            rem whatever
+            curl -O https://lwys-file-bucket-uax4yp6.netlify.app/mingw-17.1-nuwen-cleanup.7z
+            7z x mingw-17.1-nuwen-cleanup.7z -oC:\MinGW -y -aoa -bb3 -slt
+            del /y mingw-17.1-nuwen-cleanup.7z
+            cd MinGW
+            set_distro_paths
         - uses: actions/checkout@v2
           with:
             submodules: "recursive"
         # fixme: fork bomb
         - name: make
           run: make -j GHA_RUNNER_WINDOWS=y NO_NETWORKING=y
-        - name: "gen bin"
-          run: |
-            mkdir bin
-            cd bin
-            copy ..\jvav.exe .
-            copy c:\ProgramData\Chocolatey\lib\mingw\tools\install\mingw64\bin\libgcc_s_seh-1.dll .
-            copy c:\ProgramData\Chocolatey\lib\mingw\tools\install\mingw64\bin\libstdc++-6.dll .
-            copy ..\.github\workflows_meta\*.dll .
         - name: Upload binary
           uses: actions/upload-artifact@v2
           with:
-            path: bin
+            path: jvav.exe
             # platfrom-name-version-builder
             # todo: append _github_actions_hosted_runner to builder field where possible
             name: x86_64-pc-winnt-jvav-9git-nonet-azure_vm_winnt
