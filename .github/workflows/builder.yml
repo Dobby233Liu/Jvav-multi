@@ -50,7 +50,7 @@ jobs:
             xcopy curl-7.70.0-win64-mingw\*.* c:\MinGW /y /s /e
         - name: make
           shell: cmd
-          run: C:\MinGW\set_distro_paths && make -j GHA_RUNNER_WINDOWS=y STATIC=y
+          run: C:\MinGW\set_distro_paths && make -j STATIC=y
         - name: binary
           run: |
             mkdir bin
@@ -101,7 +101,7 @@ jobs:
             submodules: "recursive"
         # fixme: fork bomb
         - name: make
-          run: C:\MinGW\set_distro_paths && make -j GHA_RUNNER_WINDOWS=y NO_NETWORKING=y STATIC=y
+          run: C:\MinGW\set_distro_paths && make -j NO_NETWORKING=y STATIC=y
         - name: Upload binary
           uses: actions/upload-artifact@v2
           with:

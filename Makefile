@@ -11,7 +11,7 @@ endif
 # choices: -O3 -Ofast -Os
 # and added -O3 stuff with size-expander removed, only use if you're using -Os
 # -fversion-loops-for-strides is unavaliable
-OPTIONS ?= -Os -fgcse-after-reload -floop-interchange -floop-unroll-and-jam -fpeel-loops -fpredictive-commoning -fsplit-loops -fsplit-paths -ftree-loop-distribution -ftree-loop-vectorize -ftree-partial-pre -ftree-slp-vectorize -funswitch-loops -fvect-cost-model -fvect-cost-model=dynamic
+OPTIONS ?= -Os -flto -fgcse-after-reload -floop-interchange -floop-unroll-and-jam -fpeel-loops -fpredictive-commoning -fsplit-loops -fsplit-paths -ftree-loop-distribution -ftree-loop-vectorize -ftree-partial-pre -ftree-slp-vectorize -funswitch-loops -fvect-cost-model -fvect-cost-model=dynamic
 ifeq ($(NO_NETWORKING),y)
 else
 OPTIONS += -Icpr/include
@@ -27,11 +27,8 @@ endif
 ifeq ($(STATIC),y)
 ENDING_OPTIONS += -static-libstdc++ -static-libgcc
 endif
-ifeq ($(GHA_RUNNER_WINDOWS),y)
-#ENDING_OPTIONS += -Icpr/opt/curl/include
-#ENDING_OPTIONS += -llibcurl
-else
-#OPTIONS += -flto
+ifeq ($(JVAV_32BIT),y)
+ENDING_OPTIONS += -m32
 endif
 
 jvav:
